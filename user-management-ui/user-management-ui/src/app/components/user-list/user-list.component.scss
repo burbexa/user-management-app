@@ -1,0 +1,149 @@
+.user-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+
+    h2 {
+      margin: 0;
+      color: #333;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .user-count {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+      background: #f5f5f5;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+  }
+
+  .user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+  }
+
+  .user-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .user-info {
+      margin-bottom: 20px;
+
+      .user-name {
+        margin: 0 0 8px 0;
+        color: #333;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .user-email {
+        margin: 0 0 8px 0;
+        color: #007bff;
+        font-size: 14px;
+        word-break: break-all;
+      }
+
+      .user-id {
+        margin: 0;
+        color: #666;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+    .user-actions {
+      display: flex;
+      gap: 10px;
+
+      .btn {
+        flex: 1;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+
+        .icon {
+          font-size: 16px;
+        }
+
+        &.btn-edit {
+          background: #007bff;
+          color: white;
+
+          &:hover {
+            background: #0056b3;
+          }
+        }
+
+        &.btn-delete {
+          background: #dc3545;
+          color: white;
+
+          &:hover {
+            background: #c82333;
+          }
+        }
+      }
+    }
+  }
+
+  .no-users {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-list {
+    padding: 15px;
+
+    .user-list-header {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .user-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .user-card {
+      .user-actions {
+        flex-direction: column;
+      }
+    }
+  }
+} 

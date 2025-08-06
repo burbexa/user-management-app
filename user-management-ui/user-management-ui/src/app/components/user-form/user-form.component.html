@@ -1,0 +1,54 @@
+<div class="user-form-container">
+  <div class="form-header">
+    <h2>{{ isEditing ? 'Edit User' : 'Add New User' }}</h2>
+    <p class="form-subtitle">{{ isEditing ? 'Update user information' : 'Enter user details below' }}</p>
+  </div>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+    <div class="form-group">
+      <label for="name" class="form-label">
+        Name <span class="required">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-control"
+        [class.invalid]="isFieldInvalid('name')"
+        placeholder="Enter user name"
+        maxlength="50"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('name')">
+        {{ getErrorMessage('name') }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="form-label">
+        Email <span class="required">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        [class.invalid]="isFieldInvalid('email')"
+        placeholder="Enter email address"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('email')">
+        {{ getErrorMessage('email') }}
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
+        <span class="icon">{{ isEditing ? '💾' : '➕' }}</span>
+        {{ isEditing ? 'Update User' : 'Add User' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">
+        <span class="icon">❌</span>
+        Cancel
+      </button>
+    </div>
+  </form>
+</div> 

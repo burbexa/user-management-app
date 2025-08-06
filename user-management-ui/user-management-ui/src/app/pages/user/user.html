@@ -1,0 +1,38 @@
+<div class="user-management-container">
+  <div class="page-header">
+    <h1>User Management System</h1>
+    <button class="btn btn-primary add-user-btn" (click)="onAddUser()" [disabled]="showForm">
+      <span class="icon">➕</span>
+      Add New User
+    </button>
+  </div>
+
+  <div class="content-area">
+    <!-- Loading State -->
+    <div class="loading-container" *ngIf="isLoading">
+      <div class="loading-spinner"></div>
+      <p>Loading users...</p>
+    </div>
+
+    <!-- User Form -->
+    <div class="form-overlay" *ngIf="showForm">
+      <div class="form-backdrop" (click)="onCancelForm()"></div>
+      <div class="form-modal">
+        <app-user-form
+          [user]="selectedUser"
+          [isEditing]="isEditing"
+          (saveUser)="onSaveUser($event)"
+          (cancel)="onCancelForm()"
+        ></app-user-form>
+      </div>
+    </div>
+
+    <!-- User List -->
+    <app-user-list
+      [users]="users"
+      (editUser)="onEditUser($event)"
+      (deleteUser)="onDeleteUser($event)"
+      *ngIf="!isLoading"
+    ></app-user-list>
+  </div>
+</div>

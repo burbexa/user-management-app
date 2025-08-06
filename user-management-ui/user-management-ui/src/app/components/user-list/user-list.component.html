@@ -1,0 +1,32 @@
+<div class="user-list">
+  <div class="user-list-header">
+    <h2>Users</h2>
+    <p class="user-count">{{ users.length }} user(s) found</p>
+  </div>
+
+  <div class="user-grid" *ngIf="users.length > 0; else noUsers">
+    <div class="user-card" *ngFor="let user of users">
+      <div class="user-info">
+        <h3 class="user-name">{{ user.name }}</h3>
+        <p class="user-email">{{ user.email }}</p>
+        <p class="user-id">ID: {{ user.id }}</p>
+      </div>
+      <div class="user-actions">
+        <button class="btn btn-edit" (click)="onEdit(user)">
+          <span class="icon">✏️</span>
+          Edit
+        </button>
+        <button class="btn btn-delete" (click)="onDelete(user.id)">
+          <span class="icon">🗑️</span>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noUsers>
+    <div class="no-users">
+      <p>No users found. Add a new user to get started!</p>
+    </div>
+  </ng-template>
+</div> 
