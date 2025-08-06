@@ -1,56 +1,80 @@
-# 🧑‍💻 User Management App
+# 👨‍💻 User Management App
 
 A simple full-stack User Management Application built with:
 
-- ✅ ASP.NET Core Minimal API (.NET 8)
-- ✅ Angular 17 (Standalone Components)
-- ✅ JSONPlaceholder API simulation
-- ✅ Client-side validation
+- ✅ **ASP.NET Core Minimal API (.NET 8)**
+- ✅ **Angular 17** (Standalone Components)
+- ✅ **JSONPlaceholder** API simulation
+- ✅ **Client-side validation**
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
+```
 UserManagementApp/
-├── UserApi/ # .NET backend
-└── user-management-ui/ # Angular frontend
-
+├── UserManagementApi/       # .NET backend (Minimal API)
+└── user-management-ui/      # Angular 17 frontend
+```
 
 ---
 
 ## 🚀 How to Run the App
 
-### 🔧 Backend (ASP.NET Minimal API)
+### 🔧 Backend - ASP.NET Core Minimal API
 
-1. Navigate to the API folder:
-   bash
+1. Navigate to the API project folder:
+   ```bash
    cd UserManagementApi
-	dotnet run
-	
-	
-🌐 Frontend (Angular 17)
-        Navigate to the frontend folder:
-	cd user-management-ui
-	npm install
-	ng serve
-	
-	
-	✅ Features
-View all users (initial data fetched from JSONPlaceholder)
+   ```
 
-Add new users
+2. Run the API:
+   ```bash
+   dotnet run
+   ```
+---
 
-Edit existing users
+### 🌐 Frontend - Angular 17
 
-Delete users
+1. Navigate to the Angular frontend folder:
+   ```bash
+   cd user-management-ui
+   ```
 
-Client-side validation for name and email
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Fully in-memory persistence (resets on backend restart)
+3. Start the development server:
+   ```bash
+   ng serve
+   ```
 
-📌 Notes
-Remote users from JSONPlaceholder are cached locally on first request and treated as local users afterward.
+4. Open the app in your browser:
+   ```
+   http://localhost:4200
+   ```
 
-No database is used — data is stored in-memory.
+---
+
+## ✅ Features
+
+- 🔍 View all users (initial data fetched from JSONPlaceholder)
+- ➕ Add new users
+- ✏️ Edit existing users
+- ❌ Delete users
+- 🛡 Client-side validation (name and email)
+- 💾 In-memory persistence (resets on backend restart)
+
+---
+
+## 📌 Notes
+
+- Remote users from JSONPlaceholder are fetched **once on first request**, and then **cached in memory**
+- All Add/Edit/Delete actions are performed on the local in-memory list
+- No database is used — this project simulates real-world logic using memory only
+
+---
 
 
